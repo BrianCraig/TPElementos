@@ -11,9 +11,9 @@ matrix:
       script:
         - npm install
         - npm run build
-        - npm test-coverage
+        - npm run test-coverage
       after_success:
-        - npm codecov
+        - npm run codecov
     - language: java
       before_script:
         - cd backend
