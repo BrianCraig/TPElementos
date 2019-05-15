@@ -1,0 +1,16 @@
+matrix:
+  include:
+    - language: node_js
+      node_js:
+        - "lts/*"
+      before_script:
+        - cd frontend
+      cache:
+        directories:
+          - frontend/node_modules
+      script:
+        - npm run build
+        - npm test
+    - language: java
+      before_script:
+        - cd backend
