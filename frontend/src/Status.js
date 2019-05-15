@@ -7,7 +7,7 @@ export default class Status extends React.PureComponent {
   }
 
   componentDidMount () {
-    fetch('http://localhost:8081/greeting')
+    fetch('http://localhost:8080/exampleResouces')
       .then(() => this.setState({queried: true, alive: true}))
       .catch(() => this.setState({queried: true}));
   }

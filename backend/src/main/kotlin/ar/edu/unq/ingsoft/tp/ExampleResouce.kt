@@ -4,6 +4,7 @@ import org.springframework.data.repository.CrudRepository
 import javax.persistence.*
 
 import lombok.Data
+import org.springframework.web.bind.annotation.CrossOrigin
 
 @Entity
 @Data
@@ -16,4 +17,5 @@ class ExampleResouce {
     val name: String = ""
 }
 
+@CrossOrigin
 interface ExampleResouceRepository : CrudRepository<ExampleResouce, Long> {}
