@@ -9,6 +9,7 @@ matrix:
         directories:
           - frontend/node_modules
       script:
+        - npm install
         - npm run build
         - npm test
     - language: java
