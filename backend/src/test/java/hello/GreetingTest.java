@@ -9,4 +9,5 @@ public class GreetingTest {
     public void trueIsTrue(){
         assertTrue(true);
     }
+
 }
