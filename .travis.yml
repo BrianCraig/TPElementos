@@ -9,8 +9,13 @@ matrix:
         directories:
           - frontend/node_modules
       script:
+        - npm install
         - npm run build
-        - npm test
+        - npm run test-coverage
+      after_success:
+        - npm run codecov
     - language: java
       before_script:
         - cd backend
+      after_success:
+        - bash <(curl -s https://codecov.io/bash)

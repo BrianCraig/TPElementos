@@ -11,6 +11,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test-coverage": "react-scripts test --coverage",
+    "codecov": "codecov",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -29,6 +31,7 @@
     ]
   },
   "devDependencies": {
+    "codecov": "^3.5.0",
     "node-sass": "^4.12.0"
   }
 }
