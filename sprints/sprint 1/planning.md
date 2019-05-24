@@ -18,7 +18,7 @@
     3. Armar una lista con todos los horarios del dia
     4. Armar un componente que te muestra una posible selección de un horario en especifico
     5. Conectar los datos del back con el front
-4 User Story: `As a Player when i am looking at the possible reserves list for a field i want to be able to change the day so i can see reserves for a different day` (5 story point)
+- User Story: `As a Player when i am looking at the possible reserves list for a field i want to be able to change the day so i can see reserves for a different day` (5 story point)
     1. Definir modelo en el backend
     2. Armar Endpoint Rest (Resources en Spring)
     3. Mostrar un selector de dia para el listado
