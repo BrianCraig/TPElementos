@@ -2,9 +2,9 @@
 Cierre Sprint:
 
 Grafico Velocidad:
-![Alt text](relative/path/to/img.jpg?raw=true)
+![Grafica_de_velocidad_33_de_53](Velocidad_SP1.jpg?raw=true)
 
-Comprometidas, y estado.
+Comprometidas, y estado.    
 - Spykes individual para aprender react (5 puntos cada uno) - Finalizada
     1. Spyke Marcos
     2. Spyke Nico
