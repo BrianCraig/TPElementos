@@ -1,6 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
+	id 'jacoco'
 	id 'org.jetbrains.kotlin.plugin.jpa' version '1.2.71'
 	id 'org.springframework.boot' version '2.1.4.RELEASE'
 	id 'org.jetbrains.kotlin.jvm' version '1.2.71'
@@ -34,3 +35,17 @@ tasks.withType(KotlinCompile) {
 		jvmTarget = '1.8'
 	}
 }
+
+jacoco {
+	toolVersion = "0.8.3"
+}
+
+jacocoTestReport {
+	reports {
+		xml.enabled true
+		html.enabled false
+		xml.destination file("${buildDir}/reports/jacoco/report.xml")
+	}
+}
+
+check.dependsOn jacocoTestReport
