@@ -1,11 +1,12 @@
 package ar.edu.unq.ingsoft.tp
 
+import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class TpApplication
+class SdmApplication
 
 fun main(args: Array<String>) {
-	runApplication<TpApplication>(*args)
+	SpringApplication.run(SdmApplication::class.java, *args)
 }
