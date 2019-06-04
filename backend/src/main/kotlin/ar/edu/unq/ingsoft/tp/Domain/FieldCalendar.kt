@@ -1,19 +1,32 @@
 package ar.edu.unq.ingsoft.tp
 
-import java.time.LocalDate
-import java.time.LocalDateTime
+import org.springframework.data.annotation.Id
+import javax.persistence.*
 
 
-class FieldCalendar (val schedule : Schedule) {
+@Entity
+data class FieldCalendar (
 
-    var calendarState:  HashMap<ReserveStripe, ReserveState>
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Long? = null,
 
-    init {
-         calendarState = createCalendar(schedule)
-    }
+    @OneToOne(mappedBy = "calendar")
+    val field : Field,
+
+    val schedule : Schedule
+) {
+
+    @OneToMany(mappedBy = "fieldCalendar")
+    val calendarState: List<ReserveStripe> = mutableListOf<ReserveStripe>()
+    //val calendarState: List<ReserveStripe> = createCalendar()
+}
+
     /**
      * Genera el map con el dia de reserva disponible y horario (para toda la semana)
      */
+
+    /*
     private fun createCalendar(schedule : Schedule): HashMap<ReserveStripe, ReserveState> {
         var calendar = HashMap<ReserveStripe,ReserveState>()
         var date = LocalDate.now()
@@ -31,5 +44,4 @@ class FieldCalendar (val schedule : Schedule) {
         }
         return calendar
     }
-
-}
+    */
