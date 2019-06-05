@@ -8,5 +8,5 @@ import org.springframework.boot.runApplication
 class SdmApplication
 
 fun main(args: Array<String>) {
-	SpringApplication.run(SdmApplication::class.java, *args)
+    SpringApplication.run(SdmApplication::class.java, *args)
 }
