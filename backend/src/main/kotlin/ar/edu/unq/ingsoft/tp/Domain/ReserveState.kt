@@ -1,4 +1,4 @@
-package ar.edu.unq.ingsoft.tp
+package ar.edu.unq.ingsoft.tp.Domain
 
 
 import java.time.LocalDateTime

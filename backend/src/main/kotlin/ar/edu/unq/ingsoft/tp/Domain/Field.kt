@@ -1,4 +1,4 @@
-package ar.edu.unq.ingsoft.tp
+package ar.edu.unq.ingsoft.tp.Domain
 
 
 import javax.persistence.*
@@ -12,8 +12,7 @@ data class Field (
         val id: Long? = null,
         val name: String
 ) {
-        @OneToOne(cascade = [CascadeType.ALL])
-        @JoinColumn(name = "fieldCalendar_id", referencedColumnName = "id")
+        @OneToOne
         lateinit var calendar : FieldCalendar
 
         constructor(name:String, calendar : FieldCalendar): this(name=name){
