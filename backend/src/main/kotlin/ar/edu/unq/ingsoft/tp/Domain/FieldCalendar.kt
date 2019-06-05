@@ -1,6 +1,5 @@
 package ar.edu.unq.ingsoft.tp
 
-import org.springframework.data.annotation.Id
 import javax.persistence.*
 
 
@@ -14,6 +13,7 @@ data class FieldCalendar (
     @OneToOne(mappedBy = "calendar")
     val field : Field,
 
+    @Transient
     val schedule : Schedule
 ) {
 

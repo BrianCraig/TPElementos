@@ -9,7 +9,7 @@ data class Field (
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        val id: Long = 1L,
+        val id: Long? = null,
         val name: String
 ) {
         @OneToOne(cascade = [CascadeType.ALL])

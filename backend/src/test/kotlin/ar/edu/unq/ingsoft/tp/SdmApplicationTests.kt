@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner
 		webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class SdmApplicationTests {
 
-/*
+
 	@Autowired
 	lateinit var testRestTemplate: TestRestTemplate
 
@@ -24,14 +24,12 @@ class SdmApplicationTests {
 	fun whenCalled_shouldReturnHelloService() {
 		var result = testRestTemplate
 				// ...
-				.getForEntity("/hello-service", String::class.java)
+				.getForEntity("/hosts/hello-service", String::class.java)
 
 		assertNotNull(result)
-		assertEquals(result?.statusCode, HttpStatus.OK)
-		assertEquals(result?.body, "hello service")
+		assertEquals(HttpStatus.OK, result?.statusCode)
+		assertEquals("hello service", result?.body)
 	}
-	*/
-
 }
 
 

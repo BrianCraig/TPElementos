@@ -19,7 +19,7 @@ data class ReserveStripe(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long = 1L,
+    val id: Long? = null,
 
     val dayHour : LocalDateTime,
 
