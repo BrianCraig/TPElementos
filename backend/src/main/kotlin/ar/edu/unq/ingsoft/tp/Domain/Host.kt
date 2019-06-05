@@ -2,12 +2,13 @@ package ar.edu.unq.ingsoft.tp
 import javax.persistence.*
 
 @Entity
-data class Host(
+class Host(
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
-    val name : String? = null
+        val name : String? = null,
+
+        @Id
+        @GeneratedValue(strategy = GenerationType.AUTO)
+        val id: Long? = null
 ) {
     @OneToOne(cascade = [CascadeType.ALL])
     @JoinColumn(name = "field_id", referencedColumnName = "id")
