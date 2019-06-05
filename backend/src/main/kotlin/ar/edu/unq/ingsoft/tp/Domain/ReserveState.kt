@@ -1,9 +1,9 @@
 package ar.edu.unq.ingsoft.tp.Domain
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference
 import java.time.LocalDateTime
 import javax.persistence.*
-
 
 
 enum class ReserveState{ AVAILABLE, RESERVED }
@@ -25,6 +25,8 @@ class ReserveStripe {
 
     var reserveState: ReserveState? = null
 
+    @JsonBackReference
+    @ManyToOne
     var field: Field? = null
 }
 

@@ -2,17 +2,16 @@ package ar.edu.unq.ingsoft.tp
 
 import ar.edu.unq.ingsoft.tp.Domain.Field
 import ar.edu.unq.ingsoft.tp.Domain.Host
+import ar.edu.unq.ingsoft.tp.Domain.ReserveState
+import ar.edu.unq.ingsoft.tp.Domain.ReserveStripe
 import ar.edu.unq.ingsoft.tp.JPA.HostRepository
-import org.springframework.boot.SpringApplication
-import org.springframework.boot.CommandLineRunner
-import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.boot.runApplication
-import org.springframework.boot.ApplicationArguments
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.ApplicationArguments
 import org.springframework.boot.ApplicationRunner
+import org.springframework.boot.SpringApplication
+import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.stereotype.Component
-
-import org.springframework.context.annotation.Bean
+import java.time.LocalDateTime
 
 @SpringBootApplication
 class SdmApplication
@@ -29,11 +28,18 @@ constructor(private val repo: HostRepository) : ApplicationRunner {
     override fun run(args: ApplicationArguments) {
         val host = Host();
         val field = Field();
+        val reserveState = ReserveStripe()
 
-        host.name = "hosteador";
+        host.name = "cacho";
         host.field = field;
 
-        field.name = "asdf";
+        field.name = "la canchita de cachito";
+        field.calendar.add(reserveState)
+
+        reserveState.field = field
+        reserveState.dayHour = LocalDateTime.now()
+        reserveState.reserveState = ReserveState.AVAILABLE
+
         repo.save(host)
     }
 }

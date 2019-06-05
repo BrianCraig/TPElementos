@@ -1,9 +1,9 @@
-package ar.edu.unq.ingsoft.tp
+package ar.edu.unq.ingsoft.tp.JPA
 
-import org.springframework.data.jpa.repository.JpaRepository
+import ar.edu.unq.ingsoft.tp.Domain.Field
+import ar.edu.unq.ingsoft.tp.Domain.Host
 import org.springframework.data.repository.CrudRepository
 import org.springframework.data.rest.core.annotation.RepositoryRestResource
-import org.springframework.stereotype.Repository
 
 
 //HATEOAS, se autogeneran los endpoints y los metodos crud
@@ -13,7 +13,5 @@ interface HostRepository : CrudRepository<Host, Long>
 
 //@Repository
 
-@RepositoryRestResource//(collectionResourceRel = "fields", path = "fields")
-interface FieldRepository : CrudRepository<Field, Long>
 
 
