@@ -12,6 +12,3 @@ interface HostRepository : JpaRepository<Host, Long>
 
 @Repository
 interface FieldRepository : JpaRepository<Field, Long>
-
-@Repository
-interface ASDRepository : CrudRepository<Field, Long>

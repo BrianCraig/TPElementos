@@ -2,19 +2,15 @@ package ar.edu.unq.ingsoft.tp.Domain
 import javax.persistence.*
 
 @Entity
-data class Host(
+class Host {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
-    val name : String? = null
-) {
-    @OneToOne(cascade = [CascadeType.ALL])
-    @JoinColumn(name = "field_id", referencedColumnName = "id")
-    lateinit var field: Field  //en prox sprints se convertiria en una lista
+    var id: Long? = null
 
-    constructor(name: String, field: Field): this(name=name){
-        this.field=field
-    }
+    var name : String? = null
+
+    @OneToOne(cascade = [CascadeType.ALL])
+    var field: Field? = null
 
 }

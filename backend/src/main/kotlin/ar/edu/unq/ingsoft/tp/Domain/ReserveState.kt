@@ -15,24 +15,17 @@ enum class ReserveState{ AVAILABLE, RESERVED }
 
 
 @Entity
-data class ReserveStripe(
+class ReserveStripe {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
+    var id: Long? = null
 
-    val dayHour : LocalDateTime,
+    var dayHour : LocalDateTime? = null
 
-    val reserveState: ReserveState
-) {
+    var reserveState: ReserveState? = null
 
-    @ManyToOne
-    lateinit var fieldCalendar: FieldCalendar
-
-    constructor(dayHour: LocalDateTime, reserveState: ReserveState, fieldCalendar: FieldCalendar)
-        : this(dayHour = dayHour,reserveState = reserveState){
-        this.fieldCalendar=fieldCalendar
-    }
+    var field: Field? = null
 }
 
 

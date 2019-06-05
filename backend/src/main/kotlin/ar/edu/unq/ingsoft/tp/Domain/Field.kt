@@ -5,17 +5,14 @@ import javax.persistence.*
 
 
 @Entity
-data class Field (
-
+class Field {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        val id: Long? = null,
-        val name: String
-) {
-        @OneToOne
-        lateinit var calendar : FieldCalendar
+        var id: Long? = null
 
-        constructor(name:String, calendar : FieldCalendar): this(name=name){
-                this.calendar=calendar
-        }
+        var name: String = ""
+
+        @OneToMany(mappedBy = "field")
+        var calendar: List<ReserveStripe> = mutableListOf<ReserveStripe>()
+        //val calendarState: List<ReserveStripe> = createCalendar()
 }

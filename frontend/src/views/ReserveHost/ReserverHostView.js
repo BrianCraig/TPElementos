@@ -1,7 +1,7 @@
 import React from 'react';
 import { SpecificReserve } from './SpecificReserve';
 
-export const ReserveHostView = ({reserveList}) =>
+export const ReserveHostView = (reserveList, a}) =>
     <div>
         <h1>Reserve List for Today</h1>
         <div>
