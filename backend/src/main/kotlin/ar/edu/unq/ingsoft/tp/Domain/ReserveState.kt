@@ -1,9 +1,9 @@
-package ar.edu.unq.ingsoft.tp
+package ar.edu.unq.ingsoft.tp.Domain
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference
 import java.time.LocalDateTime
 import javax.persistence.*
-
 
 
 enum class ReserveState{ AVAILABLE, RESERVED }
@@ -15,24 +15,19 @@ enum class ReserveState{ AVAILABLE, RESERVED }
 
 
 @Entity
-data class ReserveStripe(
+class ReserveStripe {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
+    var id: Long? = null
 
-    val dayHour : LocalDateTime,
+    var dayHour : LocalDateTime? = null
 
-    val reserveState: ReserveState
-) {
+    var reserveState: ReserveState? = null
 
+    @JsonBackReference
     @ManyToOne
-    lateinit var fieldCalendar: FieldCalendar
-
-    constructor(dayHour: LocalDateTime, reserveState: ReserveState, fieldCalendar: FieldCalendar)
-        : this(dayHour = dayHour,reserveState = reserveState){
-        this.fieldCalendar=fieldCalendar
-    }
+    var field: Field? = null
 }
 
 

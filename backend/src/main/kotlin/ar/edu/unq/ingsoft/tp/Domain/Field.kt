@@ -1,22 +1,17 @@
-package ar.edu.unq.ingsoft.tp
+package ar.edu.unq.ingsoft.tp.Domain
 
 
 import javax.persistence.*
 
 
 @Entity
-data class Field (
-
+class Field {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        val id: Long? = null,
-        val name: String
-) {
-        @OneToOne(cascade = [CascadeType.ALL])
-        @JoinColumn(name = "fieldCalendar_id", referencedColumnName = "id")
-        lateinit var calendar : FieldCalendar
+        var id: Long? = null
 
-        constructor(name:String, calendar : FieldCalendar): this(name=name){
-                this.calendar=calendar
-        }
+        var name: String = ""
+
+        @OneToMany(mappedBy = "field", cascade = [CascadeType.ALL])
+        var calendar: MutableList<ReserveStripe> = mutableListOf()
 }
