@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link, navigate } from '@reach/router';
-import { fade, makeStyles } from '@material-ui/core/styles';
-import Status from './Status';
+import { navigate } from '@reach/router';
+import { makeStyles } from '@material-ui/core/styles';
 import { Router } from './Router';
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'

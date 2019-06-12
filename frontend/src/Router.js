@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Router as ReachRouter, Link } from "@reach/router";
+import { Router as ReachRouter } from "@reach/router";
 import { ReserveHostView } from "./views/ReserveHost/ReserverHostView";
 import { reserveDayMock } from "./views/ReserveHost/mock";
 import { HomeView } from "./views/Home/HomeView";
