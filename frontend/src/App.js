@@ -1,25 +1,58 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.scss';
-import Status from './Status';
+import { navigate } from '@reach/router';
+import { makeStyles } from '@material-ui/core/styles';
+import { Router } from './Router';
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
+import Typography from '@material-ui/core/Typography'
+import IconButton from '@material-ui/core/IconButton'
+import PersonIcon from '@material-ui/icons/Person'
+import CalendarIcon from '@material-ui/icons/CalendarToday'
+import Container from '@material-ui/core/Container';
 
-function App() {
+const useStyles = makeStyles(theme => ({
+  title: {
+    flexGrow: 1,
+  },
+}));
+
+const App = () => {
+  const classes = useStyles();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Status />
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <React.Fragment>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography
+            className={classes.title}
+            variant="subtitle1"
+            color="inherit"
+            onClick={() => navigate('/')}
+          >
+            TriFootBall
+        </Typography>
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="View Host Profile"
+            onClick={() => navigate('/host/profile')}
+          >
+            <PersonIcon />
+          </IconButton>
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="Reserve Calendar"
+            onClick={() => navigate('/host/calendar')}
+          >
+            <CalendarIcon />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+      <Container>
+        <Router />
+      </Container>
+    </React.Fragment>
+  )
 }
 
 export default App;
