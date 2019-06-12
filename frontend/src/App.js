@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton'
 import PersonIcon from '@material-ui/icons/Person'
 import CalendarIcon from '@material-ui/icons/CalendarToday'
+import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles(theme => ({
   title: {
@@ -48,7 +49,9 @@ const App = () => {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Router />
+      <Container>
+        <Router />
+      </Container>
     </React.Fragment>
   )
 }

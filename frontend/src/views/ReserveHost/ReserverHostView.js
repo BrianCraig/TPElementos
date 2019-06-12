@@ -1,9 +1,10 @@
 import React from 'react';
 import { SpecificReserve } from './SpecificReserve';
+import Typography from '@material-ui/core/Typography';
 
 export const ReserveHostView = ({reserveList}) =>
     <div>
-        <h1>Reserve List for Today</h1>
+        <Typography variant="h4">Reserve List for Today</Typography>
         <div>
             {reserveList.map((reserve) =><SpecificReserve reserve={reserve}/>)}
         </div>
