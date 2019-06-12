@@ -6,8 +6,8 @@ import CardContent from '@material-ui/core/CardContent';
 export const SpecificReserve = ({ reserve }) =>
   <Card>
     <CardContent>
-      <Typography>Reserve today from {reserve.from} to {reserve.to}</Typography>
-      <Typography>{reserve.reserved ? "Reserved" : "Available to Rent"}</Typography>
+      <Typography variant={"body1"}>Reserve today from {reserve.from} to {reserve.to}</Typography>
+      <Typography variant={"body1"}>{reserve.reserved ? "Reserved" : "Available to Rent"}</Typography>
     </CardContent>
   </Card>
 

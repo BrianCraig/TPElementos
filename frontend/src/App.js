@@ -25,7 +25,7 @@ const App = () => {
         <Toolbar>
           <Typography
             className={classes.title}
-            variant="title"
+            variant="subtitle1"
             color="inherit"
             onClick={() => navigate('/')}
           >
