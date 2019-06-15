@@ -8,7 +8,7 @@ export const ReserveHostView = ({ reserveList }) => (
     <Typography variant="h4">Reserve List for Today</Typography>
     <div>
       {reserveList.map(reserve => (
-        <SpecificReserve key={reserve.from} reserve={reserve} />
+        <SpecificReserve key={reserve.dayHour} reserve={reserve} />
       ))}
     </div>
   </div>
