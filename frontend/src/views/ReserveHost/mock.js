@@ -1,16 +1,15 @@
-const reserveGenerator = (reserved, from, to) => ({
+const reserveGenerator = (reserved, dayHour) => ({
     reserved,
-    from,
-    to
+    dayHour
 })
 
 export const reserveDayMock = () => ([
-    reserveGenerator(true, 10, 11),
-    reserveGenerator(true, 11, 12),
-    reserveGenerator(false, 12, 13),
-    reserveGenerator(true, 14, 15),
-    reserveGenerator(true, 15, 16),
-    reserveGenerator(false, 16, 17),
-    reserveGenerator(true, 17, 18),
-    reserveGenerator(true, 18, 19),
+    reserveGenerator(true, 10),
+    reserveGenerator(true, 11),
+    reserveGenerator(false, 12),
+    reserveGenerator(true, 14),
+    reserveGenerator(true, 15),
+    reserveGenerator(false, 16),
+    reserveGenerator(true, 17),
+    reserveGenerator(true, 18),
 ])
