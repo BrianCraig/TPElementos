@@ -36,28 +36,13 @@ constructor(private val repo: HostRepository) : ApplicationRunner {
 
         field.name = "la canchita de cachito";
 
-        calendar.put(DayOfWeek.MONDAY,
-                HourStripe(LocalTime.parse("09:00", DateTimeFormatter.ISO_LOCAL_TIME),
-                        LocalTime.parse("22:00", DateTimeFormatter.ISO_LOCAL_TIME)))
-        calendar.put(DayOfWeek.TUESDAY,
-                HourStripe(LocalTime.parse("09:00", DateTimeFormatter.ISO_LOCAL_TIME),
-                        LocalTime.parse("20:00", DateTimeFormatter.ISO_LOCAL_TIME)))
-        calendar.put(DayOfWeek.SATURDAY,
-                HourStripe(LocalTime.parse("09:00", DateTimeFormatter.ISO_LOCAL_TIME),
-                        LocalTime.parse("18:00", DateTimeFormatter.ISO_LOCAL_TIME)))
+        DayOfWeek.values().forEach {
+            val from = LocalTime.parse("09:00", DateTimeFormatter.ISO_LOCAL_TIME)
+            val to = LocalTime.parse("22:00", DateTimeFormatter.ISO_LOCAL_TIME)
+            calendar.put(it, HourStripe(from,to))
+        }
 
-
-        CalendarGenerator.generateStripes(calendar,field)
-
-
-
-        /*
-        field.calendar.add(reserveState)
-
-        reserveState.field = field
-        reserveState.dayHour = LocalDateTime.now()
-        reserveState.reserveState = ReserveState.AVAILABLE
-        */
+        CalendarGenerator.generateStripes(calendar, field)
 
 
         repo.save(host)
