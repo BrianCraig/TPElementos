@@ -2,6 +2,8 @@ import React from "react";
 import { SpecificReserve } from "./SpecificReserve";
 import Typography from "@material-ui/core/Typography";
 import { getHosts } from "../../api/connector";
+import DateFnsUtils from '@date-io/date-fns';
+import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
 
 export const sameDay = (date1, date2) =>
   date1.getFullYear() === date2.getFullYear() &&
@@ -22,9 +24,13 @@ export const ReserveHostView = ({ reserveList }) => (
 );
 
 export class ReserveHostComponentConnector extends React.PureComponent {
-  state = {
-    day: new Date()
-  };
+  constructor(props, context) {
+    super(props, context);
+
+    this.state = {
+      day: new Date()
+    };
+  }
 
   async componentDidMount() {
     this.setState({ hosts: await getHosts() });
@@ -35,6 +41,26 @@ export class ReserveHostComponentConnector extends React.PureComponent {
   render() {
     if (!this.state.hosts) return <p>Cargando</p>;
     const reservesForDate = this.state.hosts[0].field.calendar.filter(reserve => sameDay(reserveDate(reserve), this.state.day))
-    return <ReserveHostView changeDay={this.changeDay} reserveList={reservesForDate} day={this.state.day} />;
+    return (
+      <>
+      <MuiPickersUtilsProvider utils={DateFnsUtils}>
+      <KeyboardDatePicker
+          margin="normal"
+          id="mui-pickers-date"
+          label="Reservation date"
+          value={this.state.day}
+          onChange={this.changeDay}
+          KeyboardButtonProps={{
+            'aria-label': 'change date',
+          }}
+        />
+      </MuiPickersUtilsProvider>
+      <ReserveHostView 
+        changeDay={this.changeDay} 
+        reserveList={reservesForDate} 
+        day={this.state.day} 
+      />
+      </>
+    );
   }
 }
