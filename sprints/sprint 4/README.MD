@@ -29,4 +29,21 @@ High
 - more active participation of every team member (2 votes)
 
 
+Planning
+
+Spyke: definir
+
+1. Como jugador quiero tener una vista rápida del perfil del host cuando veo el alquiler de la cancha - 3sp
+
+2. Como jugador quiero ver el perfil de la cancha conteniendo su nombre, la dirección, el nombre del host, y una foto - 3sp
+
+3. Spike - Como jugador quiero poder contactar al host desde un botón en su perfil  - 2sp
+
+4. Prototipo reserva(botones, interaccion) - 5sp
+
+6. Spike - Mejorar información que se muestra de la cancha -2sp
+
+Spike - Como jugador quiero ver la foto de la cancha - 2sp
+
+Como jugador quiero poder reservar una cancha y obtener una respuesta inmediata en una alerta -5sp
 
