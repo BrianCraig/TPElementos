@@ -1,5 +1,5 @@
 ﻿Grafico Velocidad:
-![Grafica_de_velocidad](VelocityReport.PNG?raw=true)
+![Grafica_de_velocidad](VelocityReport.png?raw=true)
 
 Comprometidas, y estado.    
 
@@ -14,7 +14,7 @@ Comprometidas, y estado.
 Todo lo comprometido fue terminado.
 
 Retro:
-![Retro](Retro.PNG?raw=true)
+![Retro](Retro.png?raw=true)
 
 https://funretro.io/publicboard/VV2Cz1i8kZUdvlkpMPE5QoDi6sp2/36d6252a-f04b-4049-9672-d4ee6cccf5a5
 Low
