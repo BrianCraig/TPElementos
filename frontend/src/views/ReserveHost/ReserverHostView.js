@@ -8,6 +8,7 @@ import {
   KeyboardDatePicker
 } from "@material-ui/pickers";
 import moment from "moment";
+import { HostProfileResume } from "../../components/HostProfileResume";
 
 export const sameDay = (date1, date2) =>
   date1.getFullYear() === date2.getFullYear() &&
@@ -21,6 +22,7 @@ export const ReserveHostView = ({ reserveList, day, changeDay }) => (
     <Typography variant="h4">
       Reserve List for {moment(day).format("LL")}
     </Typography>
+    <HostProfileResume />
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <KeyboardDatePicker
         margin="normal"
