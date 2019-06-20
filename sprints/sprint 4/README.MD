@@ -41,9 +41,5 @@ Spyke: definir
 
 4. Prototipo reserva(botones, interaccion) - 5sp
 
-6. Spike - Mejorar información que se muestra de la cancha -2sp
-
-Spike - Como jugador quiero ver la foto de la cancha - 2sp
-
-Como jugador quiero poder reservar una cancha y obtener una respuesta inmediata en una alerta -5sp
+5. Spike - Mejorar información que se muestra de la cancha -2sp
 
