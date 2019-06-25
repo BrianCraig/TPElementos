@@ -17,7 +17,7 @@ export const sameDay = (date1, date2) =>
 
 export const reserveDate = reserve => new Date(reserve.dayHour);
 
-export const ReserveHostView = ({ reserveList, day, changeDay }) => (
+export const ReserveHostView = ({ reserveList, day, changeDay, limitDay }) => (
   <div>
     <Typography variant="h4">
       Reserve List for {moment(day).format("LL")}
@@ -33,6 +33,8 @@ export const ReserveHostView = ({ reserveList, day, changeDay }) => (
         KeyboardButtonProps={{
           "aria-label": "change date"
         }}
+        disablePast={true}
+        maxDate={limitDay}
       />
     </MuiPickersUtilsProvider>
     <div>
@@ -63,11 +65,13 @@ export class ReserveHostComponentConnector extends React.PureComponent {
     const reservesForDate = this.state.hosts[0].field.calendar.filter(reserve =>
       sameDay(reserveDate(reserve), this.state.day)
     );
+    const limitAllDays = reserveDate(this.state.hosts[0].field.calendar.slice(-1))
     return (
       <ReserveHostView
         changeDay={this.changeDay}
         reserveList={reservesForDate}
         day={this.state.day}
+        limitDay={limitAllDays}
       />
     );
   }
