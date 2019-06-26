@@ -1,5 +1,5 @@
 ﻿Grafico Velocidad:
-![Grafica_de_velocidad](velocity.jpg?raw=true)
+![Grafica_de_velocidad](velocity.png?raw=true)
 
 Comprometidas, y estado.    
 
