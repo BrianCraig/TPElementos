@@ -28,7 +28,7 @@ const App = () => {
             color="inherit"
             onClick={() => navigate('/')}
           >
-            TriFootBall
+            SacaDelMedio
         </Typography>
           <IconButton
             edge="start"
