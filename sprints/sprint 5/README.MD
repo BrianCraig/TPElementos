@@ -33,3 +33,6 @@ Planning:
 
 5. Spike - Como jugador quiero poder contactar al host desde un botón en su perfil  - 2sp
 
+
+
+.
