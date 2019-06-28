@@ -9,40 +9,44 @@ import {
 } from "@material-ui/pickers";
 import moment from "moment";
 import { HostProfileResume } from "../../components/HostProfileResume";
-
-export const sameDay = (date1, date2) =>
-  date1.getFullYear() === date2.getFullYear() &&
-  date1.getMonth() === date2.getMonth() &&
-  date1.getDate() === date2.getDate();
-
-export const reserveDate = reserve => new Date(reserve.dayHour);
+import { Grid, Box } from "@material-ui/core";
+import { sameDay, reserveDate } from "../../helpers/DataHelpers";
 
 export const ReserveHostView = ({ reserveList, day, changeDay, limitDay }) => (
-  <div>
-    <Typography variant="h4">
-      Reserve List for {moment(day).format("LL")}
-    </Typography>
+  <>
+    <Box mt={4} />
     <HostProfileResume />
-    <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <KeyboardDatePicker
-        margin="normal"
-        id="mui-pickers-date"
-        label="Reservation date"
-        value={day}
-        onChange={changeDay}
-        KeyboardButtonProps={{
-          "aria-label": "change date"
-        }}
-        disablePast={true}
-        maxDate={limitDay}
-      />
-    </MuiPickersUtilsProvider>
-    <div>
+    <Box align={"right"} mt={2} mb={2}>
+      <MuiPickersUtilsProvider utils={DateFnsUtils}>
+        <KeyboardDatePicker
+          margin="normal"
+          id="mui-pickers-date"
+          label="Reservation date"
+          value={day}
+          onChange={changeDay}
+          KeyboardButtonProps={{
+            "aria-label": "change date"
+          }}
+          disablePast={true}
+          maxDate={limitDay}
+        />
+      </MuiPickersUtilsProvider>
+    </Box>
+    <Grid
+      container
+      direction="row"
+      justify="center"
+      alignItems="left"
+      spacing={3}
+    >
       {reserveList.map(reserve => (
-        <SpecificReserve key={reserve.dayHour} reserve={reserve} />
+        <Grid item xs={12} sm={6} lg={4}>
+          <SpecificReserve key={reserve.dayHour} reserve={reserve} />
+        </Grid>
       ))}
-    </div>
-  </div>
+    </Grid>
+    <Box mb={4} />
+  </>
 );
 
 export class ReserveHostComponentConnector extends React.PureComponent {
@@ -65,7 +69,7 @@ export class ReserveHostComponentConnector extends React.PureComponent {
     const reservesForDate = this.state.hosts[0].field.calendar.filter(reserve =>
       sameDay(reserveDate(reserve), this.state.day)
     );
-    const limitAllDays = reserveDate(this.state.hosts[0].field.calendar.slice(-1))
+    const limitAllDays = moment().add(6, "days");
     return (
       <ReserveHostView
         changeDay={this.changeDay}

@@ -9,6 +9,7 @@ import IconButton from '@material-ui/core/IconButton'
 import PersonIcon from '@material-ui/icons/Person'
 import CalendarIcon from '@material-ui/icons/CalendarToday'
 import Container from '@material-ui/core/Container';
+import { ModalShow } from './components/ModalShow';
 
 const useStyles = makeStyles(theme => ({
   title: {
@@ -51,6 +52,7 @@ const App = () => {
       <Container>
         <Router />
       </Container>
+      <ModalShow />
     </React.Fragment>
   )
 }
