@@ -36,6 +36,7 @@ class ReserveStripe {
     constructor(dayHour : LocalDateTime, field: Field){
         this.dayHour=dayHour
         this.field=field
+        this.reserveState = if(Math.random() >= 0.4) {ReserveState.AVAILABLE} else {ReserveState.RESERVED}
     }
 
 }
