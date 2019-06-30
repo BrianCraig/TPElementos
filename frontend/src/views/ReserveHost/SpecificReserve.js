@@ -50,7 +50,7 @@ export const SpecificReserve = ({ reserve }) => {
             <Grid container justify={"space-between"}>
               <Grid item display={"inline"}>
                 <Typography display={"inline"} variant="h5">
-                  Reserve for {moment(reserve.dayHour).format("dddd, D")}
+                  {moment(reserve.dayHour).format("dddd, D")}
                 </Typography>
               </Grid>
               <Grid item display={"inline"}>
