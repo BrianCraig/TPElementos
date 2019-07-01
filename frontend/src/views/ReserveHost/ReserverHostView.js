@@ -1,6 +1,5 @@
 import React from "react";
 import { SpecificReserve } from "./SpecificReserve";
-import Typography from "@material-ui/core/Typography";
 import { getHosts } from "../../api/connector";
 import DateFnsUtils from "@date-io/date-fns";
 import {
@@ -9,7 +8,7 @@ import {
 } from "@material-ui/pickers";
 import moment from "moment";
 import { HostProfileResume } from "../../components/HostProfileResume";
-import { Grid, Box } from "@material-ui/core";
+import { Grid, Box, Container } from "@material-ui/core";
 import { sameDay, reserveDate } from "../../helpers/DataHelpers";
 
 export const ReserveHostView = ({ reserveList, day, changeDay, limitDay }) => (
@@ -32,19 +31,21 @@ export const ReserveHostView = ({ reserveList, day, changeDay, limitDay }) => (
         />
       </MuiPickersUtilsProvider>
     </Box>
+    <Container maxWidth='sm'>
     <Grid
       container
-      direction="row"
+      direction="column"
       justify="center"
       alignItems="left"
       spacing={3}
     >
       {reserveList.map(reserve => (
-        <Grid item xs={12} sm={6} lg={4}>
+        <Grid item xs={12} sm={12} lg={12}>
           <SpecificReserve key={reserve.dayHour} reserve={reserve} />
         </Grid>
       ))}
     </Grid>
+    </Container>
     <Box mb={4} />
   </>
 );

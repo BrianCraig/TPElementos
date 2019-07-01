@@ -12,6 +12,8 @@ class Field {
 
         var name: String = ""
 
+        var address : String? = null
+
         @OneToMany(mappedBy = "field", cascade = [CascadeType.ALL])
         var calendar: MutableList<ReserveStripe> = mutableListOf()
 }

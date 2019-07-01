@@ -11,7 +11,7 @@ import {
   CardActions,
   Button
 } from "@material-ui/core";
-import { isAvailable, isReserved } from "../../helpers/DataHelpers";
+import { isReserved } from "../../helpers/DataHelpers";
 import { ModalActions } from "../../state/modal";
 
 const useStyles = makeStyles(theme => ({
@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export const SpecificReserve = ({ reserve }) => {
-  const classes = useStyles();
+  /*const classes = useStyles();*/
 
   const onOpen = () => {
     const { set, openModal } = ModalActions;
@@ -50,7 +50,7 @@ export const SpecificReserve = ({ reserve }) => {
             <Grid container justify={"space-between"}>
               <Grid item display={"inline"}>
                 <Typography display={"inline"} variant="h5">
-                  Reserve for {moment(reserve.dayHour).format("dddd, D")}
+                  {moment(reserve.dayHour).format("dddd, D")}
                 </Typography>
               </Grid>
               <Grid item display={"inline"}>

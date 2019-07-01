@@ -35,6 +35,7 @@ constructor(private val repo: HostRepository) : ApplicationRunner {
         host.field = field;
 
         field.name = "la canchita de cachito";
+        field.address = "Av Calchaqui 2352, Quilmes Oeste"
 
         DayOfWeek.values().forEach {
             val from = LocalTime.parse("09:00", DateTimeFormatter.ISO_LOCAL_TIME)
