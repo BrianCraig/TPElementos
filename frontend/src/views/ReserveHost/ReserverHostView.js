@@ -1,6 +1,5 @@
 import React from "react";
 import { SpecificReserve } from "./SpecificReserve";
-import Typography from "@material-ui/core/Typography";
 import { getHosts } from "../../api/connector";
 import DateFnsUtils from "@date-io/date-fns";
 import {

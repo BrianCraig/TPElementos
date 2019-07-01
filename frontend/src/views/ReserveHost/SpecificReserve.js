@@ -11,7 +11,7 @@ import {
   CardActions,
   Button
 } from "@material-ui/core";
-import { isAvailable, isReserved } from "../../helpers/DataHelpers";
+import { isReserved } from "../../helpers/DataHelpers";
 import { ModalActions } from "../../state/modal";
 
 const useStyles = makeStyles(theme => ({
@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export const SpecificReserve = ({ reserve }) => {
-  const classes = useStyles();
+  /*const classes = useStyles();*/
 
   const onOpen = () => {
     const { set, openModal } = ModalActions;
