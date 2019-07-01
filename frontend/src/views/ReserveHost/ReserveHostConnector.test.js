@@ -9,9 +9,9 @@ import React from "react";
 import { shallow } from "enzyme";
 import {
   ReserveHostComponentConnector,
-  ReserveHostView,
-  sameDay
+  ReserveHostView
 } from "./ReserverHostView.js";
+import { sameDay } from "../../helpers/DataHelpers";
 
 describe("Reserve Host change Day", () => {
   let view;
