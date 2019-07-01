@@ -2,7 +2,6 @@ import React from "react";
 import moment from "moment";
 import {
   CardActionArea,
-  makeStyles,
   Typography,
   CardContent,
   Card,
@@ -14,11 +13,11 @@ import {
 import { isReserved } from "../../helpers/DataHelpers";
 import { ModalActions } from "../../state/modal";
 
-const useStyles = makeStyles(theme => ({
+/*const useStyles = makeStyles(theme => ({
   title: {
     background: theme.palette.primary.light
   }
-}));
+}));*/
 
 export const SpecificReserve = ({ reserve }) => {
   /*const classes = useStyles();*/
