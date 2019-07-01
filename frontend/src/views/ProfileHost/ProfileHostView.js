@@ -12,7 +12,7 @@ export const ProfileHostViewComponent = ({host, field}) =>
     <div class="card">
       <img src="https://www.w3schools.com/w3images/team2.jpg" alt="Cacho" />
       <h1>{host.name}</h1>
-      <Texto>Ubicacion: Bv. de los Intalianos 456, Wilde</Texto>
+      <Texto>Ubicacion: {field.address}}</Texto>
       <Texto>Nombre de Establecimiento: {field.name}</Texto>
       <p><Button color="primary" variant="contained">LogOut</Button></p>
     </div>

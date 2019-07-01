@@ -15,7 +15,8 @@
     "react-copy-write": "^0.8.0",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1",
-    "react-waterfall": "^4.0.4"
+    "react-waterfall": "^4.0.4",
+    "yarn": "^1.16.0"
   },
   "scripts": {
     "start": "react-scripts start",

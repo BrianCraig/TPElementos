@@ -42,6 +42,12 @@ const HostProfileResumeComponent = ({ host, field }) => {
           </Typography>
           <Typography variant="h5">{field.name}</Typography>
         </Grid>
+        <Grid item>
+          <Typography variant="subtitle2" color="textSecondary">
+            Address
+          </Typography>
+          <Typography variant="h5">{field.address}</Typography>
+        </Grid>
       </Grid>
     </Paper>
   );
