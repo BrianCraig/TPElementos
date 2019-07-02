@@ -13,3 +13,9 @@ export const reserveDayMock = () => ([
     reserveGenerator(true, 17),
     reserveGenerator(true, 18),
 ])
+
+export const hostMock = () => ({
+    name: "mockberto",
+    field: "mockfield",
+    reserveList: reserveDayMock()
+})

@@ -36,7 +36,7 @@ export const ReserveHostView = ({ host, reserveList}) => (
   </>
 );
 
-export const HostsView = ({ hostsList, day }) => (
+export const HostsView = ({ hostsList, day, changeDay }) => (
   <>
     <Container>
       <Grid
@@ -98,6 +98,7 @@ export class ReserveHostComponentConnector extends React.PureComponent {
         <HostsView
           hostsList={this.state.hosts}
           day={this.state.day}
+          changeDay={this.changeDay}
         />
       </>
     );
