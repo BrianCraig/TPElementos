@@ -7,44 +7,53 @@ import {
   KeyboardDatePicker
 } from "@material-ui/pickers";
 import moment from "moment";
-import { HostProfileResume } from "../../components/HostProfileResume";
+import { HostProfileResumeComponent } from "../../components/HostProfileResume";
 import { Grid, Box, Container } from "@material-ui/core";
 import { sameDay, reserveDate } from "../../helpers/DataHelpers";
 
-export const ReserveHostView = ({ reserveList, day, changeDay, limitDay }) => (
+export const ReserveHostView = ({ host, reserveList}) => (
   <>
     <Box mt={4} />
-    <HostProfileResume />
-    <Box align={"right"} mt={2} mb={2}>
-      <MuiPickersUtilsProvider utils={DateFnsUtils}>
-        <KeyboardDatePicker
-          margin="normal"
-          id="mui-pickers-date"
-          label="Reservation date"
-          value={day}
-          onChange={changeDay}
-          KeyboardButtonProps={{
-            "aria-label": "change date"
-          }}
-          disablePast={true}
-          maxDate={limitDay}
-        />
-      </MuiPickersUtilsProvider>
-    </Box>
-    <Container maxWidth='sm'>
+    <HostProfileResumeComponent 
+      host={host}
+      field={host.field}
+      />
+    <Box mb={4} />
+
+    <Container maxWidth='lg'>
     <Grid
       container
-      direction="column"
-      justify="center"
-      alignItems="left"
+      direction="row"
       spacing={3}
     >
       {reserveList.map(reserve => (
-        <Grid item xs={12} sm={12} lg={12}>
+        <Grid item key={reserve.dayHour}>
           <SpecificReserve key={reserve.dayHour} reserve={reserve} />
         </Grid>
       ))}
     </Grid>
+    </Container>
+  </>
+);
+
+export const HostsView = ({ hostsList, day, changeDay }) => (
+  <>
+    <Container>
+      <Grid
+        container
+        direction="row"
+        spacing={3}
+      >
+        { hostsList.map( host => ( 
+          <Grid item key={host.name}>
+            <ReserveHostView
+              host={host}
+              reserveList={host.field.calendar.filter(reserve =>
+                    sameDay(reserveDate(reserve), day) )}
+              />
+          </Grid>
+        ))}
+      </Grid>
     </Container>
     <Box mb={4} />
   </>
@@ -67,17 +76,31 @@ export class ReserveHostComponentConnector extends React.PureComponent {
 
   render() {
     if (!this.state.hosts) return <p>Cargando</p>;
-    const reservesForDate = this.state.hosts[0].field.calendar.filter(reserve =>
-      sameDay(reserveDate(reserve), this.state.day)
-    );
     const limitAllDays = moment().add(6, "days");
     return (
-      <ReserveHostView
-        changeDay={this.changeDay}
-        reserveList={reservesForDate}
-        day={this.state.day}
-        limitDay={limitAllDays}
-      />
+      <>
+        <Box align={"right"} mt={2} mb={2}>
+          <MuiPickersUtilsProvider utils={DateFnsUtils}>
+            <KeyboardDatePicker
+              margin="normal"
+              id="mui-pickers-date"
+              label="Reservation date"
+              value={this.state.day}
+              onChange={this.changeDay}
+              KeyboardButtonProps={{
+                "aria-label": "change date"
+              }}
+              disablePast={true}
+              maxDate={limitAllDays}
+            />
+          </MuiPickersUtilsProvider>
+        </Box>
+        <HostsView
+          hostsList={this.state.hosts}
+          day={this.state.day}
+          changeDay={this.changeDay}
+        />
+      </>
     );
   }
 }

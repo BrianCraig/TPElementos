@@ -13,15 +13,8 @@ import {
 import { isReserved } from "../../helpers/DataHelpers";
 import { ModalActions } from "../../state/modal";
 
-/*const useStyles = makeStyles(theme => ({
-  title: {
-    background: theme.palette.primary.light
-  }
-}));*/
-
 export const SpecificReserve = ({ reserve }) => {
-  /*const classes = useStyles();*/
-
+  
   const onOpen = () => {
     const { set, openModal } = ModalActions;
     set({
@@ -47,11 +40,11 @@ export const SpecificReserve = ({ reserve }) => {
         <Box {...titleProps}>
           <CardContent>
             <Grid container justify={"space-between"}>
-              <Grid item display={"inline"}>
+              {/*<Grid item display={"inline"}>
                 <Typography display={"inline"} variant="h5">
                   {moment(reserve.dayHour).format("dddd, D")}
                 </Typography>
-              </Grid>
+              </Grid>*/}
               <Grid item display={"inline"}>
                 <Typography display={"inline"} variant="h6">
                   {moment(reserve.dayHour).format("HH:mm")}
