@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const HostProfileResumeComponent = ({ host, field }) => {
+export const HostProfileResumeComponent = ({ host, field }) => {
   const classes = useStyles();
 
   return (
